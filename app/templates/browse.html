@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Browse Uploaded Images</h1>
+
+<form action="{{ url_for('app_routes.delete_all_images') }}" method="post">
+    <input type="submit" value="Delete Elasticsearch Index">
+</form>
+
+<div>
+    {% for image_id, image_uri in images %}
+        <div class="image-container">
+            <p>{{ image_id }}</p>
+            <img src="{{ image_uri }}" alt="{{ image_id }}">
+        </div>
+    {% endfor %}
+</div>
+
+<!-- Pagination Controls -->
+<div class="pagination">
+    {% if page is defined and page is not none %}
+        {% if page > 1 %}
+            <a href="{{ url_for('browse_routes.browse', page=page-1) }}">Previous</a>
+        {% endif %}
+        <span>Page {{ page }} of {{ total_pages }}</span>
+        {% if page < total_pages %}
+            <a href="{{ url_for('browse_routes.browse', page=page+1) }}">Next</a>
+        {% endif %}
+    {% endif %}
+</div>
+{% endblock %}
