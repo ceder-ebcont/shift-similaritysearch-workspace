@@ -12,4 +12,5 @@ RUN apt-get update && apt-get install -y \
 
 COPY . /app
 EXPOSE 5000
-CMD ["python", "run.py"]
+ENV FLASK_ENV=development
+CMD ["flask", "run", "--host=0.0.0.0", "--reload"]
