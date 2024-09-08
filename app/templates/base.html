@@ -90,9 +90,10 @@
         <img src="{{ url_for('static', filename='img/ebcont-logo_white.svg') }}" alt="Logo" style="width: 150px; margin: 20px; margin-top:unset;">
         <!--img src="{{ url_for('static', filename='img/elastic-logo.png') }}" alt="Logo" style="width: 150px; margin: 20px; margin-top:unset;"-->
 
-        <a href="{{ url_for('upload_routes.upload') }}" class="{% if request.path == url_for('upload_routes.upload') %}active{% endif %}">Upload</a>
-        <a href="{{ url_for('browse_routes.browse') }}" class="{% if request.path == url_for('browse_routes.browse') %}active{% endif %}">Browse</a>
-        <a href="{{ url_for('similarity_routes.similarity') }}" class="{% if request.path == url_for('similarity_routes.similarity') %}active{% endif %}">Similarity Check</a>
+        <a href="{{ url_for('image_upload_routes.upload') }}" class="{% if request.path == url_for('image_upload_routes.upload') %}active{% endif %}">Upload Images</a>
+        <a href="{{ url_for('text_upload_routes.upload') }}" class="{% if request.path == url_for('text_upload_routes.upload') %}active{% endif %}">Upload CSV</a>
+        <a href="{{ url_for('browse_routes.browse') }}" class="{% if request.path == url_for('browse_routes.browse') %}active{% endif %}">Browse ES indices</a>
+        <a href="{{ url_for('image_similarity_routes.similarity') }}" class="{% if request.path == url_for('image_similarity_routes.similarity') %}active{% endif %}">Image Search</a>
         <a href="{{ url_for('text_search_routes.text_search') }}" class="{% if request.path == url_for('text_search_routes.text_search') %}active{% endif %}">Text Search</a>
     </div>
     <div class="content">

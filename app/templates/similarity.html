@@ -2,7 +2,7 @@
 
 {% block content %}
 <h1>Search for Similar Images</h1>
-<form action="{{ url_for('similarity_routes.similarity') }}" method="post" enctype="multipart/form-data">
+<form action="{{ url_for('image_similarity_routes.similarity') }}" method="post" enctype="multipart/form-data">
     <input type="file" name="file">
     <input type="submit" value="Search">
 </form>

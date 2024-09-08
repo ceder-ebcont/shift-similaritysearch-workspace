@@ -3,9 +3,23 @@
 {% block content %}
 <h1>Browse Uploaded Images</h1>
 
-<form action="{{ url_for('app_routes.delete_all_images') }}" method="post">
-    <input type="submit" value="Delete Elasticsearch Index">
+<form action="{{ url_for('browse_routes.delete_all_images') }}" method="post">
+    <label for="index_name">Choose an index:</label>
+    <select id="index_name" name="index_name">
+        <option value="image_embeddings" {% if selected_index == 'image_embeddings' %}selected{% endif %}>Image Embeddings</option>
+        <option value="text_embeddings" {% if selected_index == 'text_embeddings' %}selected{% endif %}>Text Embeddings</option>
+    </select>
+    <input type="submit" value="Browse">
 </form>
+
+<form action="{{ url_for('browse_routes.delete_all_images') }}" method="post">
+    <input type="hidden" name="index_name" value="{{ selected_index }}">
+    <input type="submit" value="Delete All Images">
+</form>
+
+{% if message %}
+    <p>{{ message }}</p>
+{% endif %}
 
 <div>
     {% for image_id, image_uri in images %}
@@ -20,11 +34,11 @@
 <div class="pagination">
     {% if page is defined and page is not none %}
         {% if page > 1 %}
-            <a href="{{ url_for('browse_routes.browse', page=page-1) }}">Previous</a>
+            <a href="{{ url_for('browse_routes.browse', page=page-1, index_name=selected_index) }}">Previous</a>
         {% endif %}
         <span>Page {{ page }} of {{ total_pages }}</span>
         {% if page < total_pages %}
-            <a href="{{ url_for('browse_routes.browse', page=page+1) }}">Next</a>
+            <a href="{{ url_for('browse_routes.browse', page=page+1, index_name=selected_index) }}">Next</a>
         {% endif %}
     {% endif %}
 </div>
