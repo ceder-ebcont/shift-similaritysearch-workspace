@@ -4,20 +4,20 @@ def save_image(image_id, embedding, image_data):
     #function to store an image in the elastic index
     #TODO implement
 
-   return ""
+    return ""
     
     
 def save_product(product_id, embedding, image_data, product_name="", product_description=""):
     #function to store a product in the elastic index
     #TODO implement
 
-   return ""
+    return ""
 
 def search_similar_items(query_embedding, index_name, top_k=15, min_score=0.8):
     #function to search in the elastic index for similiar items
     #TODO implement
 
-   return ""
+    return ""
 
 def get_all(offset, per_page, selected_index):
     #function to get all items of an index

@@ -9,7 +9,7 @@ processor = CLIPProcessor.from_pretrained("openai/clip-vit-base-patch16")
 def get_image_embedding(image):
     #TODO implement
 
-   return ""
+    return ""
 
 
 def get_text_embedding(text):   
