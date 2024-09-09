@@ -19,9 +19,5 @@ def text_search():
         
         #Search in elastic cluster for similar items
         search_results = search_similar_items(query_embedding, index_name_text, min_score=0.65)
-    else:
-        search_results = []
-        query_text = ''
-
 
     return render_template('text_search.html', query_results=search_results, query_text=query_text)

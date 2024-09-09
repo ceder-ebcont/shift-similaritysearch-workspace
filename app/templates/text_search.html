@@ -14,8 +14,10 @@
     <div>
         {% for result in query_results %}
             <div class="image-container">
-                <p>{{ result[0] }} (Similarity: {{ result[1] }})</p>
-                <img src="{{ result[2] }}" alt="{{ result[0] }}">
+                <h5>{{ result[3] }}</h2>
+                <p>{{ result[4] }}</p>
+                <p>Similarity: {{ result[1] }}</p>
+                <img src="{{ result[2] }}" alt="{{ result[3] }}">
             </div>
         {% endfor %}
     </div>

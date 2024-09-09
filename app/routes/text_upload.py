@@ -21,19 +21,21 @@ def upload():
                     csv_reader = csv.reader(csv_file)
 
                     headers = next(csv_reader)
-                    id_index = headers.index('id')
+                    product_id_index = headers.index('product_id')
                     product_name_index = headers.index('product_name')
-                    description_index = headers.index('description')
-                    image_url_index = headers.index('image_url')
+                    product_description_index = headers.index('product_description')
+                    product_image_url_index = headers.index('link')
 
                     for row in csv_reader:
                         if row:
-                            product_id = row[id_index]
+                            product_id = row[product_id_index]
                             product_name = row[product_name_index]
-                            description = row[description_index]
-                            image_url = row[image_url_index]
+                            description = row[product_description_index]
+                            image_url = row[product_image_url_index]
 
-                            combined_text = f"{product_name} {description}"
+                            combined_text = f"Product ID: {product_id} Product name: {product_name} Product description: {description}"
+                            
+                            #Get embedding for the image
                             text_embedding = get_text_embedding(combined_text)
 
                             try:

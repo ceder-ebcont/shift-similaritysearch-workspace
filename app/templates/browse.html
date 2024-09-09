@@ -3,13 +3,12 @@
 {% block content %}
 <h1>Browse Uploaded Images</h1>
 
-<form action="{{ url_for('browse_routes.delete_all_images') }}" method="post">
+<form action="{{ url_for('browse_routes.browse') }}" method="post" id="indexForm">
     <label for="index_name">Choose an index:</label>
-    <select id="index_name" name="index_name">
-        <option value="image_embeddings" {% if selected_index == 'image_embeddings' %}selected{% endif %}>Image Embeddings</option>
-        <option value="text_embeddings" {% if selected_index == 'text_embeddings' %}selected{% endif %}>Text Embeddings</option>
+    <select id="index_name" name="index_name" onchange="this.form.submit()">
+        <option value="image_index" {% if selected_index == 'image_index' %}selected{% endif %}>Image Embeddings</option>
+        <option value="text_index" {% if selected_index == 'text_index' %}selected{% endif %}>Text Embeddings</option>
     </select>
-    <input type="submit" value="Browse">
 </form>
 
 <form action="{{ url_for('browse_routes.delete_all_images') }}" method="post">
